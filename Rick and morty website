@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+
+  <style>
+    .dropbtn {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: rgb(44, 43, 43);
+  
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.button {
+     padding: 10px 30px;
+     font-size: 15px;
+}
+    nav {
+      
+      color: lightgreen;
+      background-color: Red;
+      font-weight: bold;
+      font-family: Ariel;
+      font-size: 26px;
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      box-shadow: 0px 15px 10px 0px rgba(0,0,0,0.31);
+      
+    }
+
+     main {
+       
+      width: 90vw;
+      gap: 6px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-grow: 5;
+      flex-direction: column;
+      display: flex;
+       
+    }
+    
+     body {
+       
+      margin: 1;
+      gap: 11px;
+      padding: 1;
+      flex-direction: column;
+      display: flex;
+      animation-name:picanimation;
+      animation-duration: 30s;
+      animation-iteration-count: infinite;
+       
+    }
+
+@keyframes picanimation{
+  
+  0%{background-image:url('https://pro.ishmaeljup.repl.co/Rick5.jpg');}
+  
+25%{ background-image:url('https://pro.ishmaeljup.repl.co/Rick1.jpg');
+}
+  
+50% { background-image:url('https://pro.ishmaeljup.repl.co/Rick2.jpg');
+    }
+75% { background-image:url('https://pro.ishmaeljup.repl.co/Rick3.jpg');
+  
+}
+100% { background-image:url('https://pro.ishmaeljup.repl.co/Rick6.jpg');
+  
+}
+}
+  
+
+    section{
+      
+      align-items: center;
+      justify-content: space-evenly;  
+      display: flex; 
+      
+    }
+    .area{
+      
+      background-color: black;
+      font-size: 0.9em;
+      border-radius: 2px;
+      border: 1px solid grey;
+      padding: 7px;
+      box-shadow: -10px 9px 4px -4px rgba(0,0,0,0.31);
+      
+    }
+
+     .scrolls {
+       
+      display:flex;
+      flex-grow: 4;
+      max-height: 90vh;
+      overflow-y:scroll;
+       
+    }
+    
+  * {
+      box-sizing: border-box;
+    }
+    
+     table {
+
+      width: 100%;
+      border-collapse: collapse;
+       
+    }
+  
+    thead, th{
+      
+      background-color: black;
+      color: lightgreen;
+      font-weight: bold;
+      font-size: 1.5em;
+      
+    }
+  
+    td {
+      
+      font-size: 1.6em;
+      text-align: center;
+      
+    }
+
+     tr:hover { /*A feature that allows hidden details to be seen */
+
+      background-color: grey;
+      
+    }
+
+    thead {
+      
+      border-bottom: 3px solid black;
+      
+    }
+
+    button {
+      
+      border: 2px solid grey;
+      padding: 6px;
+      border-radius: 6px;
+      
+    }
+
+
+
+    tr:nth-child(even){ background-color: #f2f2f2;}
+
+    button:hover {
+      
+       background-color: lightgreen;
+    }
+
+    article {
+      
+      display: flex;
+      flex-direction: row;
+      
+    }
+    
+    aside {
+      
+      background-color: lightgreen;
+      display: flex;
+      flex-grow: 2;
+      flex-direction: column;
+      
+    }
+
+    thead button {
+      
+      height: 21px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .Animation {
+      
+  animation-name:move;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+      
+    }
+    
+ @keyframes move {
+   
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; right:200px;}
+  75%  {background-color:orange; left:0px; right:200px;}
+  100% {background-color:purple; left:0px; top:0px;}
+   
+}
+    
+  </style>
+  
+</head>
+
+<body>
+  <nav class = "Animation">
+Rick and Morty Web App
+  </nav>
+  
+<video width="400" controls>
+  <source src="https://pro.ishmaeljup.repl.co/Video.mp4" type="video/mp4">
+</video>
+
+  
+<main>
+
+  <!-- The dropdown menu is a useful feature that filters the characters listed according to gender-->
+  
+  <section class="area">
+     <div class="dropdown">
+           <button onclick="dropdown()" class="dropbtn" style = "color:lightgreen">Filter by Gender</button>
+            <center>
+               <div id="list-items" style="display: none;">
+                 
+              <button onclick="filterByGender('Male')" >
+      Male
+    </button>
+      <button onclick="filterByGender('Female')" >
+      Female	
+    </button>
+    
+               </div>
+            </center>
+           </div></li>
+
+    <!--The search bar is a feature that allows for the searching of characters in the list-->
+    
+ <input type="search" id="searchvalue" placeholder="search by name...">
+    <button class="dropbtn"  style= "color:lightgreen;"onclick=searchchar()>Search</button>
+
+  </section>
+
+  <article>
+    <div class="scrolls">
+       <table class="area">
+         <thead>
+            <tr>
+             <th> Id </th>
+             <th>Name</th>
+             <th style = "padding:15px">Status</th>
+             <th style = "padding:15px">Species</th>
+              <th>Type</th>
+              <th style= "padding:15px">Gender</th>
+              <th style= "padding:15px">Location</th>
+              <th style= "padding:15px">Origin</th>
+              <th style= "padding:15px">Picture</th>
+           </tr>
+         </thead>
+         <tbody id="ref">
+         </tbody>
+       </table>
+    </div>
+    
+   
+  </article>
+  
+</main>
+
+
+  <script>
+
+    let curr_state = [];
+
+    function createTable(records){
+      let html='';
+      let result = document.querySelector('#ref');
+      
+      for(let rec of records){
+        html+=`<tr>
+         
+         <td>${rec.id}</td>
+         <td>${rec.name}</td>
+         <td>
+           ${rec.status}
+         </td>
+         <td>
+           ${rec.species}
+         </td>
+         <td> ${rec.type}
+</td>
+<td style= "padding:15px">        ${rec.gender}
+         </td>
+<td>${rec.origin.name}</td>
+<td>${rec.location.name}</td>
+<td>
+ <img src="${rec.image}">
+</td>
+       </tr>`;
+      
+      }
+      
+      result.innerHTML = html;
+    
+    }
+    
+    async function getData(){
+  const response = await fetch('https://rickandmortyapi.com/api/character');
+  const data = await response.json();
+ return data.results.slice(0,1000);
+  
+}
+    getData('https://rickandmortyapi.com/api/character');
+
+    async function showAllchar(){
+    curr_state = await getData();
+    createTable(curr_state);
+}
+    showAllchar();
+    
+    //Filtering function for genus 
+function filterByGender(gender){
+
+  let filtered = [];
+  
+  for(let rec of curr_state) {
+    if (rec.gender === gender)
+      filtered.push(rec);
+  }
+    
+    
+  createTable(filtered);
+}
+
+    function dropdown() {
+       var click = document.getElementById("list-items");
+       if(click.style.display ==="none") {
+          click.style.display ="block";
+       } else {
+          click.style.display ="none";
+       } 
+    }
+
+    function searchchar(){
+ 
+  let searchvalue = document.querySelector('#searchvalue').value;
+  
+  let data = [];
+
+
+  for(let rec of curr_state){
+
+   
+    let searchchar = rec.name.toUpperCase();
+    searchvalue = searchvalue.toUpperCase();
+
+  
+    if ( searchchar.search(searchvalue) !== -1 ){
+      data.push(rec);
+    }
+
+    createTable(data);
+  }
+}
+  </script> 
+  
+ 
+  
+
+  </script>
+</body>
+   
+
+</html>
